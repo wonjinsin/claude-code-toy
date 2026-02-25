@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>James — Backend Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F0EFEB',
+            ink: '#111111',
+          },
+          fontFamily: {
+            sans: ['system-ui', '-apple-system', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #F0EFEB; color: #111111; }
+
+    /* Fade-in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Nav hide on scroll down */
+    #navbar {
+      transition: transform 0.3s ease;
+    }
+    #navbar.hidden-nav {
+      transform: translateY(-100%);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- NAV -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5"
+       style="background-color: #F0EFEB;">
+    <a href="#hero" class="text-xl font-black tracking-widest uppercase">JAMES</a>
+    <ul class="flex gap-8 text-sm font-medium tracking-widest uppercase">
+      <li><a href="#about" class="hover:opacity-50 transition-opacity">About</a></li>
+      <li><a href="#stack" class="hover:opacity-50 transition-opacity">Stack</a></li>
+      <li><a href="#contact" class="hover:opacity-50 transition-opacity">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="min-h-screen grid grid-cols-1 lg:grid-cols-2 pt-20">
+    <!-- Left: text -->
+    <div class="flex flex-col justify-center px-8 lg:px-16 py-16">
+      <span class="text-xs font-bold tracking-[0.3em] uppercase mb-6 opacity-50">JAMES</span>
+      <h1 class="text-6xl lg:text-8xl font-black uppercase leading-none tracking-tight mb-6">
+        A BACKEND<br/>DEVELOPER
+      </h1>
+      <p class="text-base opacity-60 mb-10 tracking-wide">Developing Backend</p>
+      <div>
+        <a href="#contact"
+           class="inline-block bg-ink text-white text-sm font-bold tracking-widest uppercase px-8 py-4 rounded-full hover:opacity-80 transition-opacity">
+          CONTACT ME
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: abstract graphic -->
+    <div class="relative flex items-center justify-center px-8 lg:px-16 py-16 overflow-hidden">
+      <!-- Background blob -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, #111 0%, transparent 70%);"></div>
+      </div>
+      <!-- Code block graphic -->
+      <div class="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl"
+           style="background: #111111;">
+        <div class="flex gap-1.5 px-4 py-3" style="background: #1a1a1a;">
+          <span class="w-3 h-3 rounded-full bg-red-500 opacity-80"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-500 opacity-80"></span>
+          <span class="w-3 h-3 rounded-full bg-green-500 opacity-80"></span>
+        </div>
+        <pre class="text-xs leading-relaxed p-6 overflow-auto" style="color: #a8ff78; font-family: 'Courier New', monospace;"><code><span style="color:#6272a4;">// main.go</span>
+<span style="color:#ff79c6;">package</span> main
+
+<span style="color:#ff79c6;">import</span> <span style="color:#f1fa8c;">"fmt"</span>
+
+<span style="color:#50fa7b;">type</span> Developer <span style="color:#8be9fd;">struct</span> {
+  Name  <span style="color:#8be9fd;">string</span>
+  Stack <span style="color:#8be9fd;">string</span>
+}
+
+<span style="color:#50fa7b;">func</span> <span style="color:#f8f8f2;">main</span>() {
+  j := Developer{
+    Name:  <span style="color:#f1fa8c;">"James"</span>,
+    Stack: <span style="color:#f1fa8c;">"Golang"</span>,
+  }
+  fmt.<span style="color:#50fa7b;">Printf</span>(
+    <span style="color:#f1fa8c;">"Hi, I'm %s\n"</span>,
+    j.Name,
+  )
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Scroll down indicator -->
+    <div class="absolute bottom-8 right-8 hidden lg:flex items-center gap-2 text-xs font-bold tracking-widest uppercase opacity-40">
+      <span>SCROLL DOWN</span>
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 px-8 lg:px-16 reveal">
+    <div class="max-w-5xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.3em] uppercase opacity-40 block mb-4">01 — About</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Icon side -->
+        <div class="flex items-center justify-center">
+          <div class="w-48 h-48 rounded-3xl flex items-center justify-center text-8xl"
+               style="background: #111111;">
+            <span>⚙️</span>
+          </div>
+        </div>
+        <!-- Text side -->
+        <div>
+          <h2 class="text-4xl lg:text-5xl font-black uppercase leading-tight mb-6">
+            HELLO,<br/>I'M JAMES
+          </h2>
+          <p class="text-base leading-relaxed opacity-60">
+            I'm a backend developer focused on building scalable, reliable systems.
+            I love clean architecture, performance optimization, and turning complex
+            problems into simple, elegant solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="px-8 lg:px-16"><div class="max-w-5xl mx-auto border-t border-ink opacity-10"></div></div>
+
+  <!-- TECH STACK -->
+  <section id="stack" class="py-24 px-8 lg:px-16 reveal">
+    <div class="max-w-5xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.3em] uppercase opacity-40 block mb-4">02 — Stack</span>
+      <h2 class="text-4xl lg:text-5xl font-black uppercase leading-tight mb-12">TECHNOLOGIES</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Golang card -->
+        <div class="rounded-2xl p-8 border border-ink border-opacity-10 hover:border-opacity-30 transition-all hover:-translate-y-1"
+             style="background: #e8e7e3;">
+          <div class="mb-4 w-14 h-14">
+            <img src="https://cdn.simpleicons.org/go/00ACD7" alt="Go" class="w-full h-full object-contain" />
+          </div>
+          <h3 class="text-xl font-black uppercase tracking-wide mb-2">Golang</h3>
+          <p class="text-sm opacity-50 leading-relaxed">Primary language. Fast, concurrent, and simple by design.</p>
+        </div>
+
+        <!-- Backend card -->
+        <div class="rounded-2xl p-8 border border-ink border-opacity-10 hover:border-opacity-30 transition-all hover:-translate-y-1"
+             style="background: #e8e7e3;">
+          <div class="mb-4 w-14 h-14">
+            <img src="https://cdn.simpleicons.org/go/5DC9E2" alt="gRPC" class="w-full h-full object-contain" />
+          </div>
+          <h3 class="text-xl font-black uppercase tracking-wide mb-2">APIs</h3>
+          <p class="text-sm opacity-50 leading-relaxed">RESTful APIs and gRPC services built for scale.</p>
+        </div>
+
+        <!-- DB card -->
+        <div class="rounded-2xl p-8 border border-ink border-opacity-10 hover:border-opacity-30 transition-all hover:-translate-y-1"
+             style="background: #e8e7e3;">
+          <div class="mb-4 w-14 h-14">
+            <img src="https://cdn.simpleicons.org/postgresql/336791" alt="PostgreSQL" class="w-full h-full object-contain" />
+          </div>
+          <h3 class="text-xl font-black uppercase tracking-wide mb-2">Databases</h3>
+          <p class="text-sm opacity-50 leading-relaxed">PostgreSQL, Redis — storing and querying data efficiently.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="px-8 lg:px-16"><div class="max-w-5xl mx-auto border-t border-ink opacity-10"></div></div>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 px-8 lg:px-16 reveal">
+    <div class="max-w-5xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.3em] uppercase opacity-40 block mb-4">03 — Projects</span>
+      <h2 class="text-4xl lg:text-5xl font-black uppercase leading-tight mb-12">WORK</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Project card -->
+        <div class="rounded-2xl p-10 text-white hover:-translate-y-1 transition-all"
+             style="background: #111111;">
+          <span class="text-xs font-bold tracking-widest uppercase opacity-40 block mb-6">Web</span>
+          <h3 class="text-2xl font-black uppercase mb-4">MADE GOOD WEBSITE</h3>
+          <p class="text-sm opacity-50 leading-relaxed mb-8">
+            A clean, modern personal website that showcases work and skills. Built with simplicity and performance in mind.
+          </p>
+          <span class="inline-block text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full border border-white border-opacity-20">
+            HTML · Tailwind · JS
+          </span>
+        </div>
+
+        <!-- Placeholder card -->
+        <div class="rounded-2xl p-10 border-2 border-dashed border-ink border-opacity-10 flex flex-col items-center justify-center text-center min-h-48">
+          <span class="text-4xl mb-4 opacity-20">+</span>
+          <p class="text-sm font-bold tracking-widest uppercase opacity-20">MORE COMING SOON</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="px-8 lg:px-16"><div class="max-w-5xl mx-auto border-t border-ink opacity-10"></div></div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-32 px-8 lg:px-16 reveal">
+    <div class="max-w-5xl mx-auto text-center">
+      <span class="text-xs font-bold tracking-[0.3em] uppercase opacity-40 block mb-4">04 — Contact</span>
+      <h2 class="text-5xl lg:text-7xl font-black uppercase leading-tight mb-6">LET'S TALK</h2>
+      <p class="text-base opacity-50 mb-12 max-w-md mx-auto">
+        Have a project in mind or just want to say hi? My inbox is always open.
+      </p>
+      <a href="mailto:foo@bar.com"
+         class="inline-block bg-ink text-white text-sm font-bold tracking-widest uppercase px-10 py-5 rounded-full hover:opacity-80 transition-opacity">
+        foo@bar.com
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-8 lg:px-16 py-8 border-t border-ink border-opacity-10">
+    <div class="max-w-5xl mx-auto flex items-center justify-between text-xs font-medium tracking-widest uppercase opacity-30">
+      <span>JAMES</span>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    // Nav hide on scroll down
+    let lastY = 0;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > lastY && y > 80) {
+        navbar.classList.add('hidden-nav');
+      } else {
+        navbar.classList.remove('hidden-nav');
+      }
+      lastY = y;
+    }, { passive: true });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
