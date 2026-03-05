@@ -1,0 +1,1 @@
+- [ ] update status line with https://github.com/sirmalloc/ccstatusline?tab=readme-ov-file#-quick-start
