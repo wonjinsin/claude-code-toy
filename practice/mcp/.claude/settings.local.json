@@ -1,8 +1,0 @@
-{
-  "_comment": "mcp__context7 allow all mcp server of context7",
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": ["context7"],
-  "permissions": {
-    "allow": ["mcp__context7"]
-  }
-}
