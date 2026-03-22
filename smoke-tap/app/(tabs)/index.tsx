@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTapStore } from '../../store/useTapStore';
 import { t } from '../../i18n';
 
@@ -20,21 +21,17 @@ export default function MainScreen() {
   const lastTapTime = getLastTapTime();
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
-      <View className="flex-1 items-center justify-center gap-8">
-        <Text className="text-4xl font-bold text-gray-800">
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        <Text style={styles.countText}>
           {t('main.todayCount', { count: todayCount })}
         </Text>
 
-        <TouchableOpacity
-          onPress={addTap}
-          className="w-20 h-20 rounded-full bg-blue-500 items-center justify-center shadow-lg"
-          activeOpacity={0.7}
-        >
-          <Text className="text-white text-5xl font-light leading-none">+</Text>
+        <TouchableOpacity onPress={addTap} style={styles.button} activeOpacity={0.7}>
+          <Text style={styles.plusText}>+</Text>
         </TouchableOpacity>
 
-        <Text className="text-base text-gray-500">
+        <Text style={styles.lastTapText}>
           {lastTapTime
             ? t('main.lastTap', { time: formatTime(lastTapTime) })
             : t('main.noTapYet')}
@@ -43,3 +40,44 @@ export default function MainScreen() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  content: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 32,
+  },
+  countText: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: '#1f2937',
+  },
+  button: {
+    width: 88,
+    height: 88,
+    borderRadius: 44,
+    backgroundColor: '#3b82f6',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#3b82f6',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  plusText: {
+    color: '#ffffff',
+    fontSize: 52,
+    fontWeight: '300',
+    lineHeight: 60,
+  },
+  lastTapText: {
+    fontSize: 16,
+    color: '#6b7280',
+  },
+});
