@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "ios-boilerplate",
-    "slug": "ios-boilerplate",
-    "scheme": "ios-boilerplate",
+    "name": "Smoke Tap",
+    "slug": "smoke-tap",
+    "scheme": "smoke-tap",
     "version": "1.0.0",
     "userInterfaceStyle": "automatic",
     "platforms": ["ios"],
@@ -12,7 +12,7 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.example.iosboilerplate"
+      "bundleIdentifier": "com.example.smoketap"
     }
   }
 }
