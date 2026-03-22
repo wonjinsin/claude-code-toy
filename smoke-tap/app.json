@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "ios-boilerplate",
+    "slug": "ios-boilerplate",
+    "scheme": "ios-boilerplate",
+    "version": "1.0.0",
+    "userInterfaceStyle": "automatic",
+    "platforms": ["ios"],
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.example.iosboilerplate"
+    }
+  }
+}
