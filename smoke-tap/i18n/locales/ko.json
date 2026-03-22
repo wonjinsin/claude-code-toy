@@ -1,0 +1,19 @@
+{
+  "tabs": {
+    "main": "메인",
+    "stats": "통계",
+    "settings": "설정"
+  },
+  "main": {
+    "todayCount": "오늘 {{count}}회",
+    "lastTap": "마지막: {{time}}",
+    "noTapYet": "아직 기록 없음"
+  },
+  "stats": {
+    "title": "지난 7일",
+    "noData": "데이터 없음"
+  },
+  "settings": {
+    "appVersion": "앱 버전"
+  }
+}
