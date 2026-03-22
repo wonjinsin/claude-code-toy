@@ -12,13 +12,20 @@ function formatTime(ts: number): string {
   }).format(new Date(ts));
 }
 
+function toLocalDateString(ts: number): string {
+  const d = new Date(ts);
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+}
+
 export default function MainScreen() {
   const addTap = useTapStore((s) => s.addTap);
-  const getTodayCount = useTapStore((s) => s.getTodayCount);
-  const getLastTapTime = useTapStore((s) => s.getLastTapTime);
-
-  const todayCount = getTodayCount();
-  const lastTapTime = getLastTapTime();
+  const todayCount = useTapStore((s) => {
+    const today = toLocalDateString(Date.now());
+    return s.records.filter((r) => toLocalDateString(r.timestamp) === today).length;
+  });
+  const lastTapTime = useTapStore((s) =>
+    s.records.length ? s.records[s.records.length - 1].timestamp : null
+  );
 
   return (
     <SafeAreaView style={styles.container}>
