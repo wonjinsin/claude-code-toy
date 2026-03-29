@@ -5,8 +5,25 @@
     "scheme": "smoke-tap",
     "version": "1.0.0",
     "userInterfaceStyle": "automatic",
-    "platforms": ["ios"],
-    "plugins": ["expo-router"],
+    "platforms": [
+      "ios"
+    ],
+    "plugins": [
+      "expo-router",
+      [
+        "expo-widgets",
+        {
+          "widgets": [
+            {
+              "name": "SmokeTapWidget",
+              "displayName": "Smoke Tap",
+              "description": "오늘 흡연 횟수를 기록하세요",
+              "supportedFamilies": ["systemSmall"]
+            }
+          ]
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true
     },
