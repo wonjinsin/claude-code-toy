@@ -3,6 +3,12 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTapStore } from '../../store/useTapStore';
 import { t } from '../../i18n';
+import { C } from '../../constants/colors';
+
+function toLocalDateString(ts: number): string {
+  const d = new Date(ts);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
 
 function formatTime(ts: number): string {
   return new Intl.DateTimeFormat(undefined, {
@@ -12,9 +18,12 @@ function formatTime(ts: number): string {
   }).format(new Date(ts));
 }
 
-function toLocalDateString(ts: number): string {
-  const d = new Date(ts);
-  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+function formatDate(): string {
+  return new Intl.DateTimeFormat('ko-KR', {
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long',
+  }).format(new Date());
 }
 
 export default function MainScreen() {
@@ -29,12 +38,23 @@ export default function MainScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.countText}>
-          {t('main.todayCount', { count: todayCount })}
-        </Text>
+      {/* Date pill */}
+      <View style={styles.dateWrapper}>
+        <View style={styles.datePill}>
+          <Text style={styles.dateText}>{formatDate()}</Text>
+        </View>
+      </View>
 
-        <TouchableOpacity onPress={addTap} style={styles.button} activeOpacity={0.7}>
+      {/* Center content */}
+      <View style={styles.content}>
+        <Text style={styles.todayLabel}>{t('main.today')}</Text>
+
+        <View style={styles.heroRow}>
+          <Text style={styles.heroNumber}>{todayCount}</Text>
+          <Text style={styles.heroUnit}>{t('main.unit')}</Text>
+        </View>
+
+        <TouchableOpacity onPress={addTap} style={styles.button} activeOpacity={0.75}>
           <Text style={styles.plusText}>+</Text>
         </TouchableOpacity>
 
@@ -51,7 +71,22 @@ export default function MainScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: C.BG,
+  },
+  dateWrapper: {
+    alignItems: 'center',
+    paddingTop: 12,
+  },
+  datePill: {
+    backgroundColor: C.CARD,
+    borderRadius: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 7,
+  },
+  dateText: {
+    fontSize: 13,
+    color: C.TEXT_MUTED,
+    letterSpacing: 0.2,
   },
   content: {
     flex: 1,
@@ -59,32 +94,54 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 32,
   },
-  countText: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#1f2937',
+  todayLabel: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: C.TEXT_MUTED,
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+  },
+  heroRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginVertical: -8,
+  },
+  heroNumber: {
+    fontSize: 108,
+    fontWeight: '700',
+    color: C.TEXT_PRIMARY,
+    lineHeight: 116,
+    letterSpacing: -4,
+  },
+  heroUnit: {
+    fontSize: 22,
+    fontWeight: '400',
+    color: C.TEXT_SECONDARY,
+    marginTop: 28,
+    marginLeft: 6,
   },
   button: {
-    width: 88,
-    height: 88,
-    borderRadius: 44,
-    backgroundColor: '#3b82f6',
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: C.ACCENT,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#3b82f6',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
+    shadowColor: C.ACCENT,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
     elevation: 8,
   },
   plusText: {
-    color: '#ffffff',
-    fontSize: 52,
-    fontWeight: '300',
-    lineHeight: 60,
+    color: '#0c0b0a',
+    fontSize: 40,
+    fontWeight: '400',
+    lineHeight: 48,
   },
   lastTapText: {
-    fontSize: 16,
-    color: '#6b7280',
+    fontSize: 13,
+    color: C.TEXT_MUTED,
+    letterSpacing: 0.2,
   },
 });

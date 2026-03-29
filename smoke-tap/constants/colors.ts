@@ -1,11 +1,13 @@
-export const Colors = {
-  primary: '#007AFF',
-  background: '#F2F2F7',
-  surface: '#FFFFFF',
-  textPrimary: '#1C1C1E',
-  textSecondary: '#8E8E93',
-  border: '#C6C6C8',
-  danger: '#FF3B30',
-  success: '#34C759',
-  overlay: 'rgba(0,0,0,0.4)',
+export const C = {
+  BG: '#121110',
+  CARD: '#1e1c1a',
+  CARD_SUBTLE: '#181614',
+  ACCENT: '#e8991a',
+  ACCENT_SOFT: '#2a2010',
+  ACCENT_DIM: '#5c3a08',
+  TEXT_PRIMARY: '#f0ece6',
+  TEXT_SECONDARY: '#8c8580',
+  TEXT_MUTED: '#5c5854',
+  TAB_BAR: '#0c0b0a',
+  BORDER: '#2e2c2a',
 } as const;

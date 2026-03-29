@@ -3,18 +3,29 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import { t } from '../../i18n';
+import { C } from '../../constants/colors';
+import AppHeader from '../../components/common/AppHeader';
 
 export default function SettingsScreen() {
-  const version = Constants.expoConfig?.version ?? '—';
+  const version = Constants.expoConfig?.version ?? '1.0.0';
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.inner}>
-        <Text style={styles.title}>{t('tabs.settings')}</Text>
+      <AppHeader />
+
+      <Text style={styles.title}>{t('settings.title')}</Text>
+
+      {/* Version card */}
+      <View style={styles.card}>
         <View style={styles.row}>
-          <Text style={styles.label}>{t('settings.appVersion')}</Text>
-          <Text style={styles.value}>{version}</Text>
+          <Text style={styles.rowLabel}>{t('settings.appVersion')}</Text>
+          <Text style={styles.rowValue}>{version}</Text>
         </View>
+      </View>
+
+      {/* Tagline */}
+      <View style={styles.footer}>
+        <Text style={styles.tagline}>{t('settings.tagline')}</Text>
       </View>
     </SafeAreaView>
   );
@@ -23,32 +34,46 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
-  },
-  inner: {
-    paddingHorizontal: 16,
-    paddingTop: 32,
+    backgroundColor: C.BG,
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#1f2937',
-    marginBottom: 32,
+    fontSize: 26,
+    fontWeight: '700',
+    color: C.TEXT_PRIMARY,
+    letterSpacing: -0.5,
+    paddingHorizontal: 20,
+    paddingTop: 4,
+    paddingBottom: 20,
+  },
+  card: {
+    marginHorizontal: 16,
+    backgroundColor: C.CARD,
+    borderRadius: 14,
+    paddingHorizontal: 20,
   },
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
     paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f3f4f6',
   },
-  label: {
-    fontSize: 16,
-    color: '#374151',
+  rowLabel: {
+    fontSize: 15,
+    color: C.TEXT_PRIMARY,
   },
-  value: {
-    fontSize: 16,
-    color: '#9ca3af',
+  rowValue: {
+    fontSize: 14,
+    color: C.TEXT_MUTED,
+  },
+  footer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingBottom: 24,
+  },
+  tagline: {
+    fontSize: 11,
+    color: C.TEXT_MUTED,
+    letterSpacing: 1.5,
   },
 });

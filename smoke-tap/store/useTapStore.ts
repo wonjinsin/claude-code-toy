@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import type { TapRecord, DailyStat } from '../types/tap';
+import type { TapRecord, DailyStat, WeeklySummary } from '../types/tap';
 
 type TapState = {
   records: TapRecord[];
@@ -9,6 +9,7 @@ type TapState = {
   getTodayCount: () => number;
   getLastTapTime: () => number | null;
   getDailyStats: (days: number) => DailyStat[];
+  getWeeklyStats: () => WeeklySummary;
 };
 
 // Returns 'YYYY-MM-DD' in device local timezone
@@ -59,6 +60,17 @@ export const useTapStore = create<TapState>()(
           stats.push({ date: dateStr, count });
         }
         return stats;
+      },
+
+      getWeeklyStats: (): WeeklySummary => {
+        const stats = get().getDailyStats(7);
+        const total = stats.reduce((sum, d) => sum + d.count, 0);
+        const peakDay = Math.max(...stats.map((d) => d.count), 0);
+        return {
+          total,
+          dailyAvg: parseFloat((total / 7).toFixed(1)),
+          peakDay,
+        };
       },
     }),
     {

@@ -7,3 +7,9 @@ export type DailyStat = {
   date: string;  // 'YYYY-MM-DD' (device local date)
   count: number;
 };
+
+export type WeeklySummary = {
+  total: number;
+  dailyAvg: number;
+  peakDay: number;
+};

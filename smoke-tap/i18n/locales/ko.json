@@ -1,19 +1,26 @@
 {
+  "appName": "SMOKE TAP",
   "tabs": {
-    "main": "메인",
+    "main": "홈",
     "stats": "통계",
     "settings": "설정"
   },
   "main": {
-    "todayCount": "오늘 {{count}}회",
+    "today": "오늘",
+    "unit": "회",
     "lastTap": "마지막: {{time}}",
     "noTapYet": "아직 기록 없음"
   },
   "stats": {
-    "title": "지난 7일",
-    "noData": "데이터 없음"
+    "title": "통계",
+    "weeklyTotal": "WEEKLY TOTAL",
+    "dailyAvg": "DAILY AVG",
+    "peakDay": "PEAK DAY",
+    "last7days": "지난 7일"
   },
   "settings": {
-    "appVersion": "앱 버전"
+    "title": "설정",
+    "appVersion": "앱 버전",
+    "tagline": "SMOKE TAP — 흡연 기록 앱"
   }
 }

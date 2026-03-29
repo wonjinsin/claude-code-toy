@@ -2,18 +2,21 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { t } from '../../i18n';
+import { C } from '../../constants/colors';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: '#8E8E93',
+        tabBarActiveTintColor: C.ACCENT,
+        tabBarInactiveTintColor: C.TEXT_MUTED,
         tabBarStyle: {
-          backgroundColor: '#FFFFFF',
-          borderTopColor: '#C6C6C8',
+          backgroundColor: C.TAB_BAR,
+          borderTopWidth: 0,
+          elevation: 0,
         },
+        tabBarLabelStyle: { fontSize: 10, letterSpacing: 0.3 },
       }}
     >
       <Tabs.Screen
@@ -23,7 +26,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? 'home' : 'home-outline'}
-              size={24}
+              size={22}
               color={color}
             />
           ),
@@ -36,7 +39,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? 'bar-chart' : 'bar-chart-outline'}
-              size={24}
+              size={22}
               color={color}
             />
           ),
@@ -49,7 +52,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={focused ? 'settings' : 'settings-outline'}
-              size={24}
+              size={22}
               color={color}
             />
           ),
