@@ -4,15 +4,18 @@
     "slug": "smoke-tap",
     "scheme": "smoke-tap",
     "version": "1.0.0",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "platforms": [
       "ios"
     ],
     "plugins": [
       "expo-router",
+      "./plugins/withRemovePushNotifications",
       [
         "expo-widgets",
         {
+          "enablePushNotifications": false,
           "widgets": [
             {
               "name": "SmokeTapWidget",
@@ -22,7 +25,8 @@
             }
           ]
         }
-      ]
+      ],
+      "./plugins/withSharedTapStore"
     ],
     "experiments": {
       "typedRoutes": true

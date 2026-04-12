@@ -1,9 +1,9 @@
 import '../global.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { AppState } from 'react-native';
 import { Stack } from 'expo-router';
-import { addUserInteractionListener } from 'expo-widgets';
-import SmokeTapWidget from '../widgets/SmokeTapWidget';
 import { useTapStore } from '../store/useTapStore';
+import { getPendingCount, clearPending, setBaseCount } from '../modules/SharedTapStore';
 
 function toLocalDateString(ts: number): string {
   const d = new Date(ts);
@@ -18,28 +18,37 @@ function getTodayCount(records: { timestamp: number }[]): number {
 function useWidgetSync() {
   const addTap = useTapStore((s) => s.addTap);
 
-  useEffect(() => {
-    // Widget → App: 위젯 버튼 탭 이벤트 수신 → AsyncStorage에 영구 저장
-    const subscription = addUserInteractionListener((event) => {
-      if (event.target === 'add-tap') {
-        addTap();
-      }
-    });
-    return () => subscription.remove();
-  }, [addTap]);
+  // 위젯 → 앱: pending 탭을 앱 store에 반영
+  async function syncPending() {
+    const pending = await getPendingCount();
+    if (pending > 0) {
+      for (let i = 0; i < pending; i++) addTap();
+      await clearPending();
+    }
+  }
+
+  // 앱 → 위젯: 오늘 카운트를 App Groups에 기록
+  async function syncBaseCount() {
+    const count = getTodayCount(useTapStore.getState().records);
+    await setBaseCount(count);
+  }
 
   useEffect(() => {
-    // App → Widget: store 변경 시 위젯에 정확한 카운트 동기화
-    const unsubscribe = useTapStore.subscribe((state) => {
-      SmokeTapWidget.updateSnapshot({ count: getTodayCount(state.records) });
-    });
+    // 앱 시작 시 동기화
+    syncPending().then(syncBaseCount);
 
-    // 앱 시작 시 현재 카운트 즉시 주입
-    SmokeTapWidget.updateSnapshot({
-      count: getTodayCount(useTapStore.getState().records),
+    // 앱이 포그라운드로 돌아올 때마다 동기화
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') syncPending().then(syncBaseCount);
     });
+    return () => sub.remove();
+  }, []);
 
-    return unsubscribe;
+  // store records가 바뀔 때마다 위젯 기준값 갱신
+  useEffect(() => {
+    return useTapStore.subscribe((state) => {
+      setBaseCount(getTodayCount(state.records));
+    });
   }, []);
 }
 

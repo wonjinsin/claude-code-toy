@@ -21,6 +21,7 @@ function getWeekRange(): string {
 }
 
 export default function StatsScreen() {
+  useTapStore((s) => s.records); // subscribe for reactivity
   const getDailyStats = useTapStore((s) => s.getDailyStats);
   const getWeeklyStats = useTapStore((s) => s.getWeeklyStats);
 
