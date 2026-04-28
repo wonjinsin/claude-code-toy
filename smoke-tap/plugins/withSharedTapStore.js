@@ -242,7 +242,7 @@ module.exports = function withSharedTapStore(config) {
       if (!scriptAlreadyAdded) {
         const scriptUuid = proj.generateUuid();
         // Simple one-liner: call our helper script
-        const patchScript = '/usr/local/bin/node \\"${SRCROOT}/../scripts/patch-expo-modules-provider.js\\"';
+        const patchScript = '/usr/local/bin/node "${SRCROOT}/../scripts/patch-expo-modules-provider.js"';
 
         if (!proj.hash.project.objects['PBXShellScriptBuildPhase']) {
           proj.hash.project.objects['PBXShellScriptBuildPhase'] = {};
@@ -263,13 +263,21 @@ module.exports = function withSharedTapStore(config) {
         };
         proj.hash.project.objects['PBXShellScriptBuildPhase'][`${scriptUuid}_comment`] = '[SharedTapStore] Patch SharedTapStoreModule into ExpoModulesProvider';
 
-        // Insert this script phase before the compile sources phase
+        // Insert AFTER [Expo] Configure project (which regenerates ExpoModulesProvider.swift),
+        // BEFORE Sources (which compiles it). Otherwise Configure project overwrites our patch.
         const target = proj.pbxNativeTargetSection()[appKey];
         if (target && target.buildPhases) {
-          let insertIdx = target.buildPhases.length;
+          let insertIdx = -1;
           for (let i = 0; i < target.buildPhases.length; i++) {
             const phaseComment = target.buildPhases[i].comment || '';
-            if (phaseComment === 'Sources') { insertIdx = i; break; }
+            if (phaseComment === '[Expo] Configure project') { insertIdx = i + 1; break; }
+          }
+          if (insertIdx === -1) {
+            insertIdx = target.buildPhases.length;
+            for (let i = 0; i < target.buildPhases.length; i++) {
+              const phaseComment = target.buildPhases[i].comment || '';
+              if (phaseComment === 'Sources') { insertIdx = i; break; }
+            }
           }
           target.buildPhases.splice(insertIdx, 0, {
             value: scriptUuid,

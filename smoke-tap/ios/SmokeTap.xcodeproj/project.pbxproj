@@ -7,42 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10C4AB883B394BB2855E3548 /* SmokeTapWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5A389649B440C899B85849 /* SmokeTapWidget.swift */; };
+		0D618A5F5BF4514AEFCBCBE1 /* libPods-ExpoWidgetsTarget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F72D05205409AECEDDD621 /* libPods-ExpoWidgetsTarget.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		257CF763C24B6F736B2B153A /* libPods-ExpoWidgetsTarget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF3F3F190DA23ACD0DE5ECC /* libPods-ExpoWidgetsTarget.a */; };
-		3C5210657F3F4C08BAF0F80A /* SharedTapStoreModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC9B1AE65674729985B2B37 /* SharedTapStoreModule.swift */; };
+		17B29EB365BC53ED1042FA56 /* libPods-SmokeTap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D00AED6DB7EC699BFCED462 /* libPods-SmokeTap.a */; };
+		2372F1EE3D45496F897E7DB4 /* SmokeTapWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB409208E24EF5A5257538 /* SmokeTapWidget.swift */; };
+		351182AC5F464D31B84BA07A /* index.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4653CE8E324390B715A3C4 /* index.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		46A84C4F17340CDE9DE3D295 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 850A2AB989D02483EBD1F9FD /* PrivacyInfo.xcprivacy */; };
-		55A51FE27F364555E59BC253 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3281F782FDC16C9F402FCB83 /* ExpoModulesProvider.swift */; };
-		59E70FEAEB0A86E15A090987 /* libPods-SmokeTap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4325D0FF662BE81D9EF5FEE8 /* libPods-SmokeTap.a */; };
+		41C7D1E5147B5D9F1E60073A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7F9AC2668D48BD7C4CCA573C /* PrivacyInfo.xcprivacy */; };
+		ACF7A2C56C674080BDDA0DC9 /* SharedTapStoreModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F56166F6C4DF78ACFBB7A /* SharedTapStoreModule.swift */; };
+		AF071A2BA9B24B5BB192FBD8 /* SharedTapStoreMainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8020C4730CAA4EC4826DC23D /* SharedTapStoreMainApp.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		BD2649DC54EB4D18976A6CC9 /* index.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0F0F1FE4E4B65AFCFF2B9 /* index.swift */; };
-		CA00542DAC4142ADBCEFC44A /* ExpoWidgetsTarget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 19DC0B33E9F84ACDB6A7F82C /* ExpoWidgetsTarget.appex */; };
-		D9D88BADFC94528599447C5E /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB09CED87250122F5440578 /* ExpoModulesProvider.swift */; };
+		CF94E65958E9EC6E3A8569B3 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A723C4C3C325C14D44323535 /* ExpoModulesProvider.swift */; };
+		E50E3846B0B5B2BCEBA582F7 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618ADB41F0B2CAC898CEDA22 /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
-		FDB40AFEFF53442F946FD498 /* SharedTapStoreMainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF0A7D607847748CFB1082 /* SharedTapStoreMainApp.swift */; };
-		42AF4D797651477A9443BD50 /* SharedTapStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFFE786C02F42B3B4FB0945 /* SharedTapStore.swift */; };
-		40B253B1EFE149D0AEA8D349 /* RecordTapIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30130FE649A64D299164056C /* RecordTapIntent.swift */; };
+		FD8AF42005A34315BD7CAE3C /* ExpoWidgetsTarget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FB044E5045EA460A8E6B8E62 /* ExpoWidgetsTarget.appex */; };
+		EF2E684B32354664BA99AD97 /* SharedTapStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40266949ADB4C8F82E6ADEE /* SharedTapStore.swift */; };
+		55B1E5A2D880488B908F0359 /* RecordTapIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CC5EDED5E047109902C970 /* RecordTapIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		94DDAD2CF303401E90167862 /* PBXContainerItemProxy */ = {
+		37DD98375FAA437CB3AECB63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B92A467B64DC46D68CA94283;
+			remoteGlobalIDString = 40561E62C7674917AD392C86;
 			remoteInfo = ExpoWidgetsTarget;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0F0F05CA52F94C17AFDCC1C6 /* Embed Foundation Extensions */ = {
+		D547149734944F9A965D998A /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				CA00542DAC4142ADBCEFC44A /* ExpoWidgetsTarget.appex in Embed Foundation Extensions */,
+				FD8AF42005A34315BD7CAE3C /* ExpoWidgetsTarget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,33 +50,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		013F56166F6C4DF78ACFBB7A /* SharedTapStoreModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SharedTapStoreModule.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/SmokeTap/SharedTapStoreModule.swift"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* SmokeTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmokeTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SmokeTap/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SmokeTap/Info.plist; sourceTree = "<group>"; };
-		19DC0B33E9F84ACDB6A7F82C /* ExpoWidgetsTarget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = undefined; name = ExpoWidgetsTarget.appex; path = ExpoWidgetsTarget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B96248FB2DF74233DCFFB05 /* Pods-ExpoWidgetsTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpoWidgetsTarget.debug.xcconfig"; path = "Target Support Files/Pods-ExpoWidgetsTarget/Pods-ExpoWidgetsTarget.debug.xcconfig"; sourceTree = "<group>"; };
-		21C4372D0D7B1B1308D0D437 /* Pods-SmokeTap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmokeTap.release.xcconfig"; path = "Target Support Files/Pods-SmokeTap/Pods-SmokeTap.release.xcconfig"; sourceTree = "<group>"; };
-		3281F782FDC16C9F402FCB83 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SmokeTap/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		4325D0FF662BE81D9EF5FEE8 /* libPods-SmokeTap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmokeTap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BEF0A7D607847748CFB1082 /* SharedTapStoreMainApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SharedTapStoreMainApp.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/SmokeTap/SharedTapStoreMainApp.swift"; sourceTree = "<group>"; };
-		4DB09CED87250122F5440578 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-ExpoWidgetsTarget/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		4DC9B1AE65674729985B2B37 /* SharedTapStoreModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SharedTapStoreModule.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/SmokeTap/SharedTapStoreModule.swift"; sourceTree = "<group>"; };
-		57669C34DB838625F14111CF /* Pods-SmokeTap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmokeTap.debug.xcconfig"; path = "Target Support Files/Pods-SmokeTap/Pods-SmokeTap.debug.xcconfig"; sourceTree = "<group>"; };
-		850A2AB989D02483EBD1F9FD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SmokeTap/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		8E5A389649B440C899B85849 /* SmokeTapWidget.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SmokeTapWidget.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/SmokeTapWidget.swift"; sourceTree = "<group>"; };
-		971A3C2830C647DE9E2F1B22 /* ExpoWidgetsTarget.entitlements */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ExpoWidgetsTarget.entitlements; path = ExpoWidgetsTarget.entitlements; sourceTree = "<group>"; };
-		9BCFD32EF6484DDCAC561D5A /* Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/Info.plist"; sourceTree = "<group>"; };
-		9C3B4D044CA64D9ABB630EA3 /* ExpoWidgetsTarget.entitlements */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ExpoWidgetsTarget.entitlements; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/ExpoWidgetsTarget.entitlements"; sourceTree = "<group>"; };
+		1B3A0448E7A443348BE74C8C /* Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/Info.plist"; sourceTree = "<group>"; };
+		1BE031A19F379146F3878261 /* Pods-ExpoWidgetsTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpoWidgetsTarget.release.xcconfig"; path = "Target Support Files/Pods-ExpoWidgetsTarget/Pods-ExpoWidgetsTarget.release.xcconfig"; sourceTree = "<group>"; };
+		53FB409208E24EF5A5257538 /* SmokeTapWidget.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SmokeTapWidget.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/SmokeTapWidget.swift"; sourceTree = "<group>"; };
+		618ADB41F0B2CAC898CEDA22 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-ExpoWidgetsTarget/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		7D00AED6DB7EC699BFCED462 /* libPods-SmokeTap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmokeTap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F9AC2668D48BD7C4CCA573C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SmokeTap/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		8020C4730CAA4EC4826DC23D /* SharedTapStoreMainApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = SharedTapStoreMainApp.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/SmokeTap/SharedTapStoreMainApp.swift"; sourceTree = "<group>"; };
+		83F72D05205409AECEDDD621 /* libPods-ExpoWidgetsTarget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExpoWidgetsTarget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89915D6BE6BDB16486A6601C /* Pods-ExpoWidgetsTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpoWidgetsTarget.debug.xcconfig"; path = "Target Support Files/Pods-ExpoWidgetsTarget/Pods-ExpoWidgetsTarget.debug.xcconfig"; sourceTree = "<group>"; };
+		A723C4C3C325C14D44323535 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SmokeTap/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = SmokeTap/SplashScreen.storyboard; sourceTree = "<group>"; };
+		AE4653CE8E324390B715A3C4 /* index.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = index.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/index.swift"; sourceTree = "<group>"; };
+		B6ED426DFD6478D98B34A50A /* Pods-SmokeTap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmokeTap.release.xcconfig"; path = "Target Support Files/Pods-SmokeTap/Pods-SmokeTap.release.xcconfig"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C521CA0E245DE640A92950F8 /* Pods-ExpoWidgetsTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpoWidgetsTarget.release.xcconfig"; path = "Target Support Files/Pods-ExpoWidgetsTarget/Pods-ExpoWidgetsTarget.release.xcconfig"; sourceTree = "<group>"; };
-		DCF3F3F190DA23ACD0DE5ECC /* libPods-ExpoWidgetsTarget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExpoWidgetsTarget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEB0F0F1FE4E4B65AFCFF2B9 /* index.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = index.swift; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/index.swift"; sourceTree = "<group>"; };
+		C0EBC9FFD12B42A7BF70763B /* ExpoWidgetsTarget.entitlements */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ExpoWidgetsTarget.entitlements; path = ExpoWidgetsTarget.entitlements; sourceTree = "<group>"; };
+		CAF673AD168E71349BE15507 /* Pods-SmokeTap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmokeTap.debug.xcconfig"; path = "Target Support Files/Pods-SmokeTap/Pods-SmokeTap.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SmokeTap/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* SmokeTap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SmokeTap-Bridging-Header.h"; path = "SmokeTap/SmokeTap-Bridging-Header.h"; sourceTree = "<group>"; };
-		2DFFE786C02F42B3B4FB0945 /* SharedTapStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "SharedTapStore.swift"; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/SharedTapStore.swift"; sourceTree = "<group>"; };
-		30130FE649A64D299164056C /* RecordTapIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "RecordTapIntent.swift"; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/RecordTapIntent.swift"; sourceTree = "<group>"; };
+		FB044E5045EA460A8E6B8E62 /* ExpoWidgetsTarget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = undefined; name = ExpoWidgetsTarget.appex; path = ExpoWidgetsTarget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD79CE89691E4C02BCAF092C /* ExpoWidgetsTarget.entitlements */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ExpoWidgetsTarget.entitlements; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/ExpoWidgetsTarget.entitlements"; sourceTree = "<group>"; };
+		B40266949ADB4C8F82E6ADEE /* SharedTapStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "SharedTapStore.swift"; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/SharedTapStore.swift"; sourceTree = "<group>"; };
+		F6CC5EDED5E047109902C970 /* RecordTapIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "RecordTapIntent.swift"; path = "/Users/WonjinSin/Documents/project/claude-code-toy/smoke-tap/ios/ExpoWidgetsTarget/RecordTapIntent.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,15 +84,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59E70FEAEB0A86E15A090987 /* libPods-SmokeTap.a in Frameworks */,
+				17B29EB365BC53ED1042FA56 /* libPods-SmokeTap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		48B030ADC6F546089313CE1C /* Frameworks */ = {
+		37CE41DCE4884D578F8B8FF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257CF763C24B6F736B2B153A /* libPods-ExpoWidgetsTarget.a in Frameworks */,
+				0D618A5F5BF4514AEFCBCBE1 /* libPods-ExpoWidgetsTarget.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,57 +108,53 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				850A2AB989D02483EBD1F9FD /* PrivacyInfo.xcprivacy */,
+				7F9AC2668D48BD7C4CCA573C /* PrivacyInfo.xcprivacy */,
 			);
 			name = SmokeTap;
 			sourceTree = "<group>";
 		};
-		265103EFE52646AB985268CF /* ExpoWidgetsTarget */ = {
+		26F85C80CAAB4C1084D98ACC /* ExpoWidgetsTarget */ = {
 			isa = PBXGroup;
 			children = (
-				9C3B4D044CA64D9ABB630EA3 /* ExpoWidgetsTarget.entitlements */,
-				9BCFD32EF6484DDCAC561D5A /* Info.plist */,
-				DEB0F0F1FE4E4B65AFCFF2B9 /* index.swift */,
-				8E5A389649B440C899B85849 /* SmokeTapWidget.swift */,
-				971A3C2830C647DE9E2F1B22 /* ExpoWidgetsTarget.entitlements */,
+				FD79CE89691E4C02BCAF092C /* ExpoWidgetsTarget.entitlements */,
+				1B3A0448E7A443348BE74C8C /* Info.plist */,
+				AE4653CE8E324390B715A3C4 /* index.swift */,
+				53FB409208E24EF5A5257538 /* SmokeTapWidget.swift */,
+				C0EBC9FFD12B42A7BF70763B /* ExpoWidgetsTarget.entitlements */,
 			);
 			name = ExpoWidgetsTarget;
 			path = ExpoWidgetsTarget;
-			sourceTree = "<group>";
-		};
-		2B1CB1A2DA6B30A9F87BC28F /* ExpoWidgetsTarget */ = {
-			isa = PBXGroup;
-			children = (
-				4DB09CED87250122F5440578 /* ExpoModulesProvider.swift */,
-			);
-			name = ExpoWidgetsTarget;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				DCF3F3F190DA23ACD0DE5ECC /* libPods-ExpoWidgetsTarget.a */,
-				4325D0FF662BE81D9EF5FEE8 /* libPods-SmokeTap.a */,
+				83F72D05205409AECEDDD621 /* libPods-ExpoWidgetsTarget.a */,
+				7D00AED6DB7EC699BFCED462 /* libPods-SmokeTap.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5958C2C62488044B05DB7D57 /* ExpoModulesProviders */ = {
+		3530CA44CA59DD149C513088 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2B1CB1A2DA6B30A9F87BC28F /* ExpoWidgetsTarget */,
-				797D36A8C6B5967CDB8EC8CE /* SmokeTap */,
+				89915D6BE6BDB16486A6601C /* Pods-ExpoWidgetsTarget.debug.xcconfig */,
+				1BE031A19F379146F3878261 /* Pods-ExpoWidgetsTarget.release.xcconfig */,
+				CAF673AD168E71349BE15507 /* Pods-SmokeTap.debug.xcconfig */,
+				B6ED426DFD6478D98B34A50A /* Pods-SmokeTap.release.xcconfig */,
 			);
-			name = ExpoModulesProviders;
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		797D36A8C6B5967CDB8EC8CE /* SmokeTap */ = {
+		40E088318265C55CB6530A94 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				3281F782FDC16C9F402FCB83 /* ExpoModulesProvider.swift */,
+				9C5B80DA0A0876D4DF72CCC6 /* ExpoWidgetsTarget */,
+				DE5CAF6A8B5D9608DB38904E /* SmokeTap */,
 			);
-			name = SmokeTap;
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -175,9 +171,9 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				265103EFE52646AB985268CF /* ExpoWidgetsTarget */,
-				C4044B72705B395519E31614 /* Pods */,
-				5958C2C62488044B05DB7D57 /* ExpoModulesProviders */,
+				26F85C80CAAB4C1084D98ACC /* ExpoWidgetsTarget */,
+				3530CA44CA59DD149C513088 /* Pods */,
+				40E088318265C55CB6530A94 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -188,9 +184,17 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* SmokeTap.app */,
-				19DC0B33E9F84ACDB6A7F82C /* ExpoWidgetsTarget.appex */,
+				FB044E5045EA460A8E6B8E62 /* ExpoWidgetsTarget.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9C5B80DA0A0876D4DF72CCC6 /* ExpoWidgetsTarget */ = {
+			isa = PBXGroup;
+			children = (
+				618ADB41F0B2CAC898CEDA22 /* ExpoModulesProvider.swift */,
+			);
+			name = ExpoWidgetsTarget;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -202,16 +206,12 @@
 			path = SmokeTap/Supporting;
 			sourceTree = "<group>";
 		};
-		C4044B72705B395519E31614 /* Pods */ = {
+		DE5CAF6A8B5D9608DB38904E /* SmokeTap */ = {
 			isa = PBXGroup;
 			children = (
-				1B96248FB2DF74233DCFFB05 /* Pods-ExpoWidgetsTarget.debug.xcconfig */,
-				C521CA0E245DE640A92950F8 /* Pods-ExpoWidgetsTarget.release.xcconfig */,
-				57669C34DB838625F14111CF /* Pods-SmokeTap.debug.xcconfig */,
-				21C4372D0D7B1B1308D0D437 /* Pods-SmokeTap.release.xcconfig */,
+				A723C4C3C325C14D44323535 /* ExpoModulesProvider.swift */,
 			);
-			name = Pods;
-			path = Pods;
+			name = SmokeTap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,35 +222,35 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SmokeTap" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				DF853FEE9DAB43D5B758A176 /* [SharedTapStore] Patch SharedTapStoreModule into ExpoModulesProvider */,
-				BA28989D9B8875AF4C8707A8 /* [Expo] Configure project */,
+				BD7A8BBDE6A17BE2DDAEEEB8 /* [Expo] Configure project */,
+				AD6AA48A6ADD4616A07F6ABF /* [SharedTapStore] Patch SharedTapStoreModule into ExpoModulesProvider */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				0F0F05CA52F94C17AFDCC1C6 /* Embed Foundation Extensions */,
-				EB760368B5B25284A5D479F3 /* [CP] Embed Pods Frameworks */,
+				D547149734944F9A965D998A /* Embed Foundation Extensions */,
+				302168A35E1B7908670169A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B5376DC1C4074ABC899481AE /* PBXTargetDependency */,
+				3078FE0DF6A04EEFB023D00B /* PBXTargetDependency */,
 			);
 			name = SmokeTap;
 			productName = SmokeTap;
 			productReference = 13B07F961A680F5B00A75B9A /* SmokeTap.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B92A467B64DC46D68CA94283 /* ExpoWidgetsTarget */ = {
+		40561E62C7674917AD392C86 /* ExpoWidgetsTarget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCDDE8E5FB2E4004A430533E /* Build configuration list for PBXNativeTarget "ExpoWidgetsTarget" */;
+			buildConfigurationList = 80AB1942102D4AF98F398F44 /* Build configuration list for PBXNativeTarget "ExpoWidgetsTarget" */;
 			buildPhases = (
-				D64397AD8A90F9188044B64A /* [CP] Check Pods Manifest.lock */,
-				EB278542192D3EDEAA33AD00 /* [Expo] Configure project */,
-				2AE8C22426414077AF15BC3A /* Sources */,
-				48B030ADC6F546089313CE1C /* Frameworks */,
-				A22CD845F5CBE91828AB58F2 /* [CP] Copy Pods Resources */,
+				B20ADCB407A87EA38F6DBFEE /* [CP] Check Pods Manifest.lock */,
+				6ADBA60405DE748861EC0599 /* [Expo] Configure project */,
+				7D9408A5E240475997899340 /* Sources */,
+				37CE41DCE4884D578F8B8FF5 /* Frameworks */,
+				B9FE41158116B281FBA207DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,7 +258,7 @@
 			);
 			name = ExpoWidgetsTarget;
 			productName = ExpoWidgetsTarget;
-			productReference = 19DC0B33E9F84ACDB6A7F82C /* ExpoWidgetsTarget.appex */;
+			productReference = FB044E5045EA460A8E6B8E62 /* ExpoWidgetsTarget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -271,13 +271,9 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1250;
-						DevelopmentTeam = "2KDMC5JZXC";
-						ProvisioningStyle = Automatic;
 					};
-					B92A467B64DC46D68CA94283 = {
+					40561E62C7674917AD392C86 = {
 						LastSwiftMigration = 1250;
-						DevelopmentTeam = "2KDMC5JZXC";
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -295,7 +291,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* SmokeTap */,
-				B92A467B64DC46D68CA94283 /* ExpoWidgetsTarget */,
+				40561E62C7674917AD392C86 /* ExpoWidgetsTarget */,
 			);
 		};
 /* End PBXProject section */
@@ -308,7 +304,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				46A84C4F17340CDE9DE3D295 /* PrivacyInfo.xcprivacy in Resources */,
+				41C7D1E5147B5D9F1E60073A /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +350,52 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		302168A35E1B7908670169A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmokeTap/Pods-SmokeTap-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermesvm.framework/hermesvm",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermesvm.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmokeTap/Pods-SmokeTap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6ADBA60405DE748861EC0599 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/ExpoWidgetsTarget/ExpoWidgetsTarget.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-ExpoWidgetsTarget/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-ExpoWidgetsTarget/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-ExpoWidgetsTarget/expo-configure-project.sh\"\n";
+		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,7 +430,48 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmokeTap/Pods-SmokeTap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A22CD845F5CBE91828AB58F2 /* [CP] Copy Pods Resources */ = {
+		AD6AA48A6ADD4616A07F6ABF /* [SharedTapStore] Patch SharedTapStoreModule into ExpoModulesProvider */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[SharedTapStore] Patch SharedTapStoreModule into ExpoModulesProvider";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/node \"${SRCROOT}/../scripts/patch-expo-modules-provider.js\"";
+			showEnvVarsInLog = 0;
+		};
+		B20ADCB407A87EA38F6DBFEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExpoWidgetsTarget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9FE41158116B281FBA207DF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -410,7 +493,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExpoWidgetsTarget/Pods-ExpoWidgetsTarget-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA28989D9B8875AF4C8707A8 /* [Expo] Configure project */ = {
+		BD7A8BBDE6A17BE2DDAEEEB8 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -434,93 +517,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-SmokeTap/expo-configure-project.sh\"\n";
 		};
-		D64397AD8A90F9188044B64A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ExpoWidgetsTarget-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF853FEE9DAB43D5B758A176 /* [SharedTapStore] Patch SharedTapStoreModule into ExpoModulesProvider */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[SharedTapStore] Patch SharedTapStoreModule into ExpoModulesProvider";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/node ${SRCROOT}/../scripts/patch-expo-modules-provider.js\n";
-			showEnvVarsInLog = 0;
-		};
-		EB278542192D3EDEAA33AD00 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/ExpoWidgetsTarget/ExpoWidgetsTarget.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-ExpoWidgetsTarget/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-ExpoWidgetsTarget/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-ExpoWidgetsTarget/expo-configure-project.sh\"\n";
-		};
-		EB760368B5B25284A5D479F3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SmokeTap/Pods-SmokeTap-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermesvm.framework/hermesvm",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermesvm.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmokeTap/Pods-SmokeTap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -529,38 +525,60 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				FDB40AFEFF53442F946FD498 /* SharedTapStoreMainApp.swift in Sources */,
-				3C5210657F3F4C08BAF0F80A /* SharedTapStoreModule.swift in Sources */,
-				55A51FE27F364555E59BC253 /* ExpoModulesProvider.swift in Sources */,
+				AF071A2BA9B24B5BB192FBD8 /* SharedTapStoreMainApp.swift in Sources */,
+				ACF7A2C56C674080BDDA0DC9 /* SharedTapStoreModule.swift in Sources */,
+				CF94E65958E9EC6E3A8569B3 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2AE8C22426414077AF15BC3A /* Sources */ = {
+		7D9408A5E240475997899340 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD2649DC54EB4D18976A6CC9 /* index.swift in Sources */,
-				10C4AB883B394BB2855E3548 /* SmokeTapWidget.swift in Sources */,
-				D9D88BADFC94528599447C5E /* ExpoModulesProvider.swift in Sources */,
-				42AF4D797651477A9443BD50 /* SharedTapStore.swift in Sources */,
-				40B253B1EFE149D0AEA8D349 /* RecordTapIntent.swift in Sources */,
+				351182AC5F464D31B84BA07A /* index.swift in Sources */,
+				2372F1EE3D45496F897E7DB4 /* SmokeTapWidget.swift in Sources */,
+				E50E3846B0B5B2BCEBA582F7 /* ExpoModulesProvider.swift in Sources */,
+				EF2E684B32354664BA99AD97 /* SharedTapStore.swift in Sources */,
+				55B1E5A2D880488B908F0359 /* RecordTapIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B5376DC1C4074ABC899481AE /* PBXTargetDependency */ = {
+		3078FE0DF6A04EEFB023D00B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B92A467B64DC46D68CA94283 /* ExpoWidgetsTarget */;
-			targetProxy = 94DDAD2CF303401E90167862 /* PBXContainerItemProxy */;
+			target = 40561E62C7674917AD392C86 /* ExpoWidgetsTarget */;
+			targetProxy = 37DD98375FAA437CB3AECB63 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0956709532E248B68FBD5DDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BE031A19F379146F3878261 /* Pods-ExpoWidgetsTarget.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ExpoWidgetsTarget/ExpoWidgetsTarget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpoWidgetsTarget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ExpoWidgetsTarget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.smoketap.ExpoWidgetsTarget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57669C34DB838625F14111CF /* Pods-SmokeTap.debug.xcconfig */;
+			baseConfigurationReference = CAF673AD168E71349BE15507 /* Pods-SmokeTap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -591,15 +609,12 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
-				DEVELOPMENT_TEAM = "2KDMC5JZXC";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21C4372D0D7B1B1308D0D437 /* Pods-SmokeTap.release.xcconfig */;
+			baseConfigurationReference = B6ED426DFD6478D98B34A50A /* Pods-SmokeTap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -624,15 +639,12 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
-				DEVELOPMENT_TEAM = "2KDMC5JZXC";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Release;
 		};
-		5EA78A099F3548078D6E2E90 /* Release */ = {
+		59DCB26A8CD04D4FA4E726D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C521CA0E245DE640A92950F8 /* Pods-ExpoWidgetsTarget.release.xcconfig */;
+			baseConfigurationReference = 89915D6BE6BDB16486A6601C /* Pods-ExpoWidgetsTarget.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = ExpoWidgetsTarget/ExpoWidgetsTarget.entitlements;
@@ -643,17 +655,14 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.smoketap.ExpoWidgetsTarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				DEVELOPMENT_TEAM = "2KDMC5JZXC";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 			};
-			name = Release;
+			name = Debug;
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -777,31 +786,6 @@
 			};
 			name = Release;
 		};
-		A7E70C005B0A47A4B237B196 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B96248FB2DF74233DCFFB05 /* Pods-ExpoWidgetsTarget.debug.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = ExpoWidgetsTarget/ExpoWidgetsTarget.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ExpoWidgetsTarget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ExpoWidgetsTarget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.smoketap.ExpoWidgetsTarget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				DEVELOPMENT_TEAM = "2KDMC5JZXC";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -814,20 +798,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		80AB1942102D4AF98F398F44 /* Build configuration list for PBXNativeTarget "ExpoWidgetsTarget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59DCB26A8CD04D4FA4E726D5 /* Debug */,
+				0956709532E248B68FBD5DDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SmokeTap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CCDDE8E5FB2E4004A430533E /* Build configuration list for PBXNativeTarget "ExpoWidgetsTarget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A7E70C005B0A47A4B237B196 /* Debug */,
-				5EA78A099F3548078D6E2E90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
