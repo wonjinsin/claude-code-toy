@@ -1,79 +1,99 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
+import { useTapStore } from '../../store/useTapStore';
 import { t } from '../../i18n';
 import { C } from '../../constants/colors';
-import AppHeader from '../../components/common/AppHeader';
+import PaperBackground from '../../components/common/PaperBackground';
+import Section from '../../components/settings/Section';
+import Row from '../../components/settings/Row';
+
+function formatStartDate(records: { timestamp: number }[]): string {
+  if (records.length === 0) return t('settings.noStartDate');
+  const first = records[0].timestamp;
+  return new Intl.DateTimeFormat('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+  }).format(new Date(first));
+}
 
 export default function SettingsScreen() {
+  const records = useTapStore((s) => s.records);
   const version = Constants.expoConfig?.version ?? '1.0.0';
 
+  const [shakeUndo, setShakeUndo] = useState(true);
+  const [haptic, setHaptic] = useState(true);
+
   return (
-    <SafeAreaView style={styles.container}>
-      <AppHeader />
+    <PaperBackground>
+      <SafeAreaView style={styles.safe}>
+        <ScrollView contentContainerStyle={styles.scroll}>
+          <View style={styles.header}>
+            <Text style={styles.title} allowFontScaling={false}>
+              {t('settings.title')}
+            </Text>
+          </View>
 
-      <Text style={styles.title}>{t('settings.title')}</Text>
+          <Section title={t('settings.section.records')}>
+            <Row
+              label={t('settings.shakeUndo')}
+              switched={shakeUndo}
+              onToggle={() => setShakeUndo((v) => !v)}
+            />
+            <Row
+              label={t('settings.haptic')}
+              switched={haptic}
+              onToggle={() => setHaptic((v) => !v)}
+              last
+            />
+          </Section>
 
-      {/* Version card */}
-      <View style={styles.card}>
-        <View style={styles.row}>
-          <Text style={styles.rowLabel}>{t('settings.appVersion')}</Text>
-          <Text style={styles.rowValue}>{version}</Text>
-        </View>
-      </View>
+          <Section title={t('settings.section.data')}>
+            <Row label={t('settings.iCloud')} value={t('settings.iCloudOff')} />
+            <Row label={t('settings.startDate')} value={formatStartDate(records)} />
+            <Row label={t('settings.exportCsv')} onPress={() => {}} last />
+          </Section>
 
-      {/* Tagline */}
-      <View style={styles.footer}>
-        <Text style={styles.tagline}>{t('settings.tagline')}</Text>
-      </View>
-    </SafeAreaView>
+          <Section title={t('settings.section.app')}>
+            <Row label={t('settings.appVersion')} value={version} />
+            <Row label={t('settings.appIcon')} value={t('settings.appIconDefault')} />
+            <Row label={t('settings.appearance')} value={t('settings.appearanceAuto')} last />
+          </Section>
+
+          <View style={styles.footer}>
+            <Text style={styles.tagline} allowFontScaling={false}>
+              {t('settings.tagline')}
+            </Text>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </PaperBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: C.BG,
+  safe: { flex: 1 },
+  scroll: { paddingBottom: 24 },
+  header: {
+    paddingTop: 20,
+    paddingHorizontal: 24,
+    paddingBottom: 28,
   },
   title: {
-    fontSize: 26,
-    fontWeight: '700',
-    color: C.TEXT_PRIMARY,
-    letterSpacing: -0.5,
-    paddingHorizontal: 20,
-    paddingTop: 4,
-    paddingBottom: 20,
-  },
-  card: {
-    marginHorizontal: 16,
-    backgroundColor: C.CARD,
-    borderRadius: 14,
-    paddingHorizontal: 20,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 16,
-  },
-  rowLabel: {
-    fontSize: 15,
-    color: C.TEXT_PRIMARY,
-  },
-  rowValue: {
-    fontSize: 14,
-    color: C.TEXT_MUTED,
+    fontSize: 28,
+    fontWeight: '500',
+    color: C.INK,
+    letterSpacing: -0.6,
   },
   footer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    paddingTop: 8,
+    paddingHorizontal: 24,
     paddingBottom: 24,
   },
   tagline: {
     fontSize: 11,
-    color: C.TEXT_MUTED,
-    letterSpacing: 1.5,
+    color: C.INK_40,
+    lineHeight: 18,
   },
 });

@@ -1,9 +1,14 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTapStore } from '../../store/useTapStore';
 import { t } from '../../i18n';
 import { C } from '../../constants/colors';
+import PaperBackground from '../../components/common/PaperBackground';
+import CountDisplay from '../../components/home/CountDisplay';
+import PlusButton from '../../components/home/PlusButton';
+import HourlyMini from '../../components/home/HourlyMini';
+import UndoToast from '../../components/home/UndoToast';
 
 function toLocalDateString(ts: number): string {
   const d = new Date(ts);
@@ -26,122 +31,114 @@ function formatDate(): string {
   }).format(new Date());
 }
 
-export default function MainScreen() {
+export default function HomeScreen() {
+  const records = useTapStore((s) => s.records);
   const addTap = useTapStore((s) => s.addTap);
-  const todayCount = useTapStore((s) => {
-    const today = toLocalDateString(Date.now());
-    return s.records.filter((r) => toLocalDateString(r.timestamp) === today).length;
-  });
-  const lastTapTime = useTapStore((s) =>
-    s.records.length ? s.records[s.records.length - 1].timestamp : null
-  );
+  const removeLastTap = useTapStore((s) => s.removeLastTap);
+  const getHourlyToday = useTapStore((s) => s.getHourlyToday);
+
+  const today = toLocalDateString(Date.now());
+  const todayCount = records.filter(
+    (r) => toLocalDateString(r.timestamp) === today
+  ).length;
+  const lastTapTime = records.length
+    ? records[records.length - 1].timestamp
+    : null;
+  const hourly = getHourlyToday();
+
+  const [tick, setTick] = useState(0);
+  const [toastVisible, setToastVisible] = useState(false);
+
+  const handleTap = () => {
+    addTap();
+    setTick((n) => n + 1);
+    setToastVisible(true);
+  };
+
+  const handleUndo = () => {
+    removeLastTap();
+    setToastVisible(false);
+  };
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Date pill */}
-      <View style={styles.dateWrapper}>
-        <View style={styles.datePill}>
-          <Text style={styles.dateText}>{formatDate()}</Text>
-        </View>
-      </View>
-
-      {/* Center content */}
-      <View style={styles.content}>
-        <Text style={styles.todayLabel}>{t('main.today')}</Text>
-
-        <View style={styles.heroRow}>
-          <Text style={styles.heroNumber}>{todayCount}</Text>
-          <Text style={styles.heroUnit}>{t('main.unit')}</Text>
+    <PaperBackground>
+      <SafeAreaView style={styles.safe}>
+        <View style={styles.dateBlock}>
+          <Text style={styles.dateText} allowFontScaling={false}>
+            {formatDate()}
+          </Text>
+          <Text style={styles.todayHeading} allowFontScaling={false}>
+            {t('main.today')}
+          </Text>
         </View>
 
-        <TouchableOpacity onPress={addTap} style={styles.button} activeOpacity={0.75}>
-          <Text style={styles.plusText}>+</Text>
-        </TouchableOpacity>
+        <View style={styles.center}>
+          <CountDisplay count={todayCount} tick={tick} />
+          <PlusButton onPress={handleTap} />
+        </View>
 
-        <Text style={styles.lastTapText}>
-          {lastTapTime
-            ? t('main.lastTap', { time: formatTime(lastTapTime) })
-            : t('main.noTapYet')}
-        </Text>
-      </View>
-    </SafeAreaView>
+        <View style={styles.metaRow}>
+          <Text style={styles.metaText} allowFontScaling={false}>
+            {lastTapTime
+              ? t('main.lastTap', { time: formatTime(lastTapTime) })
+              : t('main.noTapYet')}
+          </Text>
+        </View>
+
+        <View style={styles.hourlyWrap}>
+          <HourlyMini data={hourly} />
+        </View>
+
+        <UndoToast
+          visible={toastVisible}
+          onUndo={handleUndo}
+          onDismiss={() => setToastVisible(false)}
+          resetKey={tick}
+        />
+      </SafeAreaView>
+    </PaperBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safe: {
     flex: 1,
-    backgroundColor: C.BG,
   },
-  dateWrapper: {
-    alignItems: 'center',
-    paddingTop: 12,
-  },
-  datePill: {
-    backgroundColor: C.CARD,
-    borderRadius: 20,
-    paddingHorizontal: 16,
-    paddingVertical: 7,
+  dateBlock: {
+    paddingTop: 20,
+    paddingHorizontal: 24,
   },
   dateText: {
     fontSize: 13,
-    color: C.TEXT_MUTED,
-    letterSpacing: 0.2,
+    color: C.INK_40,
+    letterSpacing: 0.3,
   },
-  content: {
+  todayHeading: {
+    fontSize: 22,
+    fontWeight: '500',
+    color: C.INK,
+    letterSpacing: -0.4,
+    marginTop: 4,
+  },
+  center: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 32,
+    gap: 28,
   },
-  todayLabel: {
-    fontSize: 12,
-    fontWeight: '500',
-    color: C.TEXT_MUTED,
-    letterSpacing: 2,
-    textTransform: 'uppercase',
-  },
-  heroRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginVertical: -8,
-  },
-  heroNumber: {
-    fontSize: 108,
-    fontWeight: '700',
-    color: C.TEXT_PRIMARY,
-    lineHeight: 116,
-    letterSpacing: -4,
-  },
-  heroUnit: {
-    fontSize: 22,
-    fontWeight: '400',
-    color: C.TEXT_SECONDARY,
-    marginTop: 28,
-    marginLeft: 6,
-  },
-  button: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: C.ACCENT,
+  metaRow: {
+    paddingHorizontal: 24,
+    paddingTop: 12,
+    paddingBottom: 16,
     alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: C.ACCENT,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.3,
-    shadowRadius: 20,
-    elevation: 8,
+    minHeight: 18,
   },
-  plusText: {
-    color: '#0c0b0a',
-    fontSize: 40,
-    fontWeight: '400',
-    lineHeight: 48,
-  },
-  lastTapText: {
+  metaText: {
     fontSize: 13,
-    color: C.TEXT_MUTED,
+    color: C.INK_70,
     letterSpacing: 0.2,
+  },
+  hourlyWrap: {
+    paddingBottom: 12,
   },
 });

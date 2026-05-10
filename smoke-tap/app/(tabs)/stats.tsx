@@ -1,154 +1,253 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTapStore } from '../../store/useTapStore';
 import { t } from '../../i18n';
 import { C } from '../../constants/colors';
-import AppHeader from '../../components/common/AppHeader';
-import BarChart from '../../components/stats/BarChart';
+import PaperBackground from '../../components/common/PaperBackground';
+import BarChart, { type BarItem } from '../../components/stats/BarChart';
 
-function toLocalDateString(ts: number): string {
-  const d = new Date(ts);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+type Range = 'day' | 'week' | 'month';
+
+const RANGE_LABEL: Record<Range, string> = {
+  day: '일',
+  week: '주',
+  month: '달',
+};
+
+function dayBuckets(hourly: number[]): BarItem[] {
+  const out: BarItem[] = [];
+  for (let i = 0; i < 8; i++) {
+    const start = i * 3;
+    const count = hourly[start] + hourly[start + 1] + hourly[start + 2];
+    out.push({ count, label: String(start).padStart(2, '0') });
+  }
+  return out;
 }
 
-function getWeekRange(): string {
-  const end = new Date();
-  const start = new Date();
-  start.setDate(start.getDate() - 6);
-  const fmt = (d: Date) => `${d.getMonth() + 1}.${d.getDate()}`;
-  return `${fmt(start)} – ${fmt(end)}`;
+function weekBuckets(daily: { date: string; count: number }[]): BarItem[] {
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
+  return daily.map((d) => {
+    const [, , dayStr] = d.date.split('-');
+    const dayNum = new Date(`${d.date}T00:00:00`).getDay();
+    return { count: d.count, label: days[dayNum] ?? dayStr };
+  });
+}
+
+function formatTime(ts: number): string {
+  return new Intl.DateTimeFormat(undefined, {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: false,
+  }).format(new Date(ts));
+}
+
+function timeAgo(ts: number, now: number): string {
+  const diffMin = Math.max(0, Math.floor((now - ts) / 60000));
+  if (diffMin < 1) return '방금';
+  if (diffMin < 60) return `${diffMin}분 전`;
+  const diffHr = Math.floor(diffMin / 60);
+  if (diffHr < 24) return `${diffHr}시간 전`;
+  const diffDay = Math.floor(diffHr / 24);
+  return `${diffDay}일 전`;
 }
 
 export default function StatsScreen() {
-  useTapStore((s) => s.records); // subscribe for reactivity
+  const records = useTapStore((s) => s.records);
   const getDailyStats = useTapStore((s) => s.getDailyStats);
-  const getWeeklyStats = useTapStore((s) => s.getWeeklyStats);
+  const getHourlyToday = useTapStore((s) => s.getHourlyToday);
+  const getMonthlyStats = useTapStore((s) => s.getMonthlyStats);
 
-  const data = getDailyStats(7);
-  const weekly = getWeeklyStats();
-  const todayDate = toLocalDateString(Date.now());
+  const [range, setRange] = useState<Range>('week');
+
+  const data: BarItem[] =
+    range === 'day'
+      ? dayBuckets(getHourlyToday())
+      : range === 'week'
+      ? weekBuckets(getDailyStats(7))
+      : getMonthlyStats();
+
+  const total = data.reduce((a, b) => a + b.count, 0);
+
+  const now = Date.now();
+  const recent = [...records]
+    .slice(-4)
+    .reverse()
+    .map((r) => ({
+      time: formatTime(r.timestamp),
+      ago: timeAgo(r.timestamp, now),
+    }));
 
   return (
-    <SafeAreaView style={styles.container}>
-      <AppHeader />
-
-      {/* Title row */}
-      <View style={styles.titleRow}>
-        <Text style={styles.title}>{t('stats.title')}</Text>
-        <Text style={styles.dateRange}>{getWeekRange()}</Text>
-      </View>
-
-      {/* Weekly summary card */}
-      <View style={styles.card}>
-        <View style={styles.cardTopRow}>
-          <Text style={styles.cardLabel}>{t('stats.weeklyTotal')}</Text>
-          <Text style={styles.cardHero}>{weekly.total}회</Text>
+    <PaperBackground>
+      <SafeAreaView style={styles.safe}>
+        <View style={styles.header}>
+          <Text style={styles.observe} allowFontScaling={false}>
+            {t('stats.observe')}
+          </Text>
+          <Text style={styles.title} allowFontScaling={false}>
+            {t('stats.title')}
+          </Text>
         </View>
-        <View style={styles.divider} />
-        <View style={styles.cardBottomRow}>
-          <View style={styles.cardStat}>
-            <Text style={styles.cardLabel}>{t('stats.dailyAvg')}</Text>
-            <Text style={styles.cardStatValue}>{weekly.dailyAvg}회</Text>
-          </View>
-          <View style={styles.cardStatDivider} />
-          <View style={styles.cardStat}>
-            <Text style={styles.cardLabel}>{t('stats.peakDay')}</Text>
-            <Text style={styles.cardStatValue}>{weekly.peakDay}회</Text>
-          </View>
+
+        <View style={styles.segmentRow}>
+          {(['day', 'week', 'month'] as Range[]).map((r) => {
+            const active = r === range;
+            return (
+              <Pressable key={r} onPress={() => setRange(r)} style={styles.segBtn}>
+                <Text
+                  style={[styles.segLabel, active && styles.segLabelActive]}
+                  allowFontScaling={false}
+                >
+                  {t(`stats.${r}`)}
+                </Text>
+                {active && <View style={styles.segUnderline} />}
+              </Pressable>
+            );
+          })}
         </View>
-      </View>
 
-      {/* Section label */}
-      <Text style={styles.sectionLabel}>{t('stats.last7days')}</Text>
+        <View style={styles.totalBlock}>
+          <Text style={styles.totalCaption} allowFontScaling={false}>
+            {t('stats.totalThis', { range: RANGE_LABEL[range] })}
+          </Text>
+          <Text style={styles.totalNumber} allowFontScaling={false}>
+            {total}
+          </Text>
+        </View>
 
-      {/* Bar chart */}
-      <BarChart data={data} todayDate={todayDate} />
-    </SafeAreaView>
+        <BarChart data={data} highlightLast={range !== 'day'} />
+
+        <View style={styles.recentBlock}>
+          <Text style={styles.recentCaption} allowFontScaling={false}>
+            {t('stats.recent')}
+          </Text>
+          {recent.length === 0 ? (
+            <Text style={styles.empty} allowFontScaling={false}>
+              {t('main.noTapYet')}
+            </Text>
+          ) : (
+            recent.map((r, i) => (
+              <View
+                key={i}
+                style={[
+                  styles.recentRow,
+                  i < recent.length - 1 && styles.recentRowBorder,
+                ]}
+              >
+                <Text style={styles.recentTime} allowFontScaling={false}>
+                  {r.time}
+                </Text>
+                <Text style={styles.recentAgo} allowFontScaling={false}>
+                  {r.ago}
+                </Text>
+              </View>
+            ))
+          )}
+        </View>
+      </SafeAreaView>
+    </PaperBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: C.BG,
+  safe: { flex: 1 },
+  header: {
+    paddingTop: 20,
+    paddingHorizontal: 24,
+    paddingBottom: 24,
   },
-  titleRow: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 4,
-    paddingBottom: 20,
+  observe: {
+    fontSize: 13,
+    color: C.INK_40,
+    letterSpacing: 0.3,
   },
   title: {
-    fontSize: 26,
-    fontWeight: '700',
-    color: C.TEXT_PRIMARY,
-    letterSpacing: -0.5,
+    fontSize: 28,
+    fontWeight: '500',
+    color: C.INK,
+    letterSpacing: -0.6,
+    marginTop: 4,
   },
-  dateRange: {
+  segmentRow: {
+    flexDirection: 'row',
+    paddingHorizontal: 24,
+    paddingBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: C.HAIR,
+  },
+  segBtn: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    alignItems: 'center',
+  },
+  segLabel: {
     fontSize: 13,
-    color: C.TEXT_MUTED,
-    letterSpacing: 0.2,
-  },
-  card: {
-    marginHorizontal: 16,
-    backgroundColor: C.CARD,
-    borderRadius: 14,
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    marginBottom: 28,
-  },
-  cardTopRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 14,
-  },
-  cardLabel: {
-    fontSize: 11,
     fontWeight: '500',
-    color: C.TEXT_MUTED,
-    letterSpacing: 1,
+    color: C.INK_40,
   },
-  cardHero: {
-    fontSize: 26,
-    fontWeight: '700',
-    color: C.TEXT_PRIMARY,
-    letterSpacing: -0.5,
+  segLabelActive: {
+    color: C.INK,
   },
-  divider: {
+  segUnderline: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: -1,
     height: 1,
-    backgroundColor: C.BORDER,
-    marginBottom: 14,
+    backgroundColor: C.INK,
   },
-  cardBottomRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  totalBlock: {
+    paddingHorizontal: 24,
+    paddingTop: 24,
+    paddingBottom: 20,
   },
-  cardStat: {
-    flex: 1,
-    alignItems: 'center',
-    gap: 5,
-  },
-  cardStatDivider: {
-    width: 1,
-    height: 32,
-    backgroundColor: C.BORDER,
-  },
-  cardStatValue: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: C.TEXT_PRIMARY,
-    letterSpacing: -0.3,
-  },
-  sectionLabel: {
+  totalCaption: {
     fontSize: 11,
-    fontWeight: '500',
-    color: C.TEXT_MUTED,
-    letterSpacing: 1,
-    paddingHorizontal: 20,
-    marginBottom: 14,
+    color: C.INK_40,
+    letterSpacing: 0.6,
+    textTransform: 'uppercase',
+    marginBottom: 4,
+  },
+  totalNumber: {
+    fontSize: 48,
+    fontWeight: '200',
+    color: C.INK,
+    letterSpacing: -1.5,
+    lineHeight: 48,
+    fontVariant: ['tabular-nums'],
+  },
+  recentBlock: {
+    paddingTop: 24,
+    paddingHorizontal: 24,
+  },
+  recentCaption: {
+    fontSize: 11,
+    color: C.INK_40,
+    letterSpacing: 0.6,
+    textTransform: 'uppercase',
+    marginBottom: 8,
+  },
+  empty: {
+    fontSize: 13,
+    color: C.INK_40,
+  },
+  recentRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+  },
+  recentRowBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: C.HAIR,
+  },
+  recentTime: {
+    fontSize: 14,
+    color: C.INK,
+    fontVariant: ['tabular-nums'],
+  },
+  recentAgo: {
+    fontSize: 14,
+    color: C.INK_40,
   },
 });

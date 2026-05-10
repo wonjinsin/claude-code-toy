@@ -101,29 +101,51 @@ private extension View {
 struct SmokeTapWidgetView: View {
     let entry: SmokeTapEntry
     var body: some View {
-        VStack(spacing: 4) {
-            Text("오늘")
-                .font(.system(size: 10, weight: .semibold))
-                .foregroundColor(Color(hex: "5c5854"))
+        ZStack(alignment: .topLeading) {
+            // Paper grain — 4×4 dot pattern, ink @ 7% alpha
+            Canvas { ctx, size in
+                let dot = Color(hex: "1A1815").opacity(0.07)
+                var y = 1
+                while y < Int(size.height) {
+                    var x = 1
+                    while x < Int(size.width) {
+                        ctx.fill(
+                            Path(CGRect(x: CGFloat(x), y: CGFloat(y), width: 1, height: 1)),
+                            with: .color(dot)
+                        )
+                        x += 4
+                    }
+                    y += 4
+                }
+            }
+            .allowsHitTesting(false)
+
+            // Big number, top-left
             Text("\\(entry.count)")
-                .font(.system(size: 44, weight: .bold))
-                .foregroundColor(Color(hex: "f0ece6"))
-            Text("회")
-                .font(.system(size: 11))
-                .foregroundColor(Color(hex: "8c8580"))
+                .font(.system(size: 72, weight: .thin))
+                .tracking(-2.5)
+                .foregroundColor(Color(hex: "1A1815"))
+                .padding(.leading, 4)
+                .padding(.top, 2)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+
+            // Plus button, bottom-right
             if #available(iOS 17.0, *) {
                 Button(intent: RecordTapIntent()) {
                     Text("+")
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(Color(hex: "121110"))
-                        .frame(width: 32, height: 32)
-                        .background(Color(hex: "e8991a"))
+                        .font(.system(size: 26, weight: .thin))
+                        .foregroundColor(Color(hex: "FBF9F4"))
+                        .frame(width: 44, height: 44)
+                        .background(Color(hex: "1A1815"))
                         .clipShape(Circle())
-                }.buttonStyle(.plain)
+                        .shadow(color: Color(hex: "1A1815").opacity(0.20), radius: 8, x: 0, y: 2)
+                }
+                .buttonStyle(.plain)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .widgetBackground(Color(hex: "121110"))
+        .padding(12)
+        .widgetBackground(Color(hex: "FBF9F4"))
     }
 }
 

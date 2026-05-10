@@ -1,3 +1,7 @@
+// Reference JSX for the iOS widget. Real build comes from the Swift in
+// scripts/patch-widget.js — keep the tones in sync when changing either.
+// Pre-existing type errors here (WidgetBase, EdgeInsets) predate this
+// redesign and are unrelated; the file is reference-only.
 import { Text, VStack, Button } from '@expo/ui/swift-ui';
 import {
   font,
@@ -18,34 +22,18 @@ const SmokeTapWidget = (p: WidgetBase<SmokeTapProps>) => {
     <VStack spacing={6} modifiers={[padding(12)]}>
       <Text
         modifiers={[
-          font({ size: 11, weight: 'semibold' }),
-          foregroundStyle('#5c5854'),
-        ]}
-      >
-        오늘
-      </Text>
-      <Text
-        modifiers={[
-          font({ size: 48, weight: 'bold' }),
-          foregroundStyle('#f0ece6'),
+          font({ size: 72, weight: 'ultraLight' }),
+          foregroundStyle('#1A1815'),
         ]}
       >
         {p.count}
-      </Text>
-      <Text
-        modifiers={[
-          font({ size: 12 }),
-          foregroundStyle('#8c8580'),
-        ]}
-      >
-        회
       </Text>
       <Button
         label="+"
         target="add-tap"
         modifiers={[
           buttonStyle('borderedProminent'),
-          foregroundStyle('#0c0b0a'),
+          foregroundStyle('#FBF9F4'),
         ]}
         onPress={() => ({ count: p.count + 1 })}
       />

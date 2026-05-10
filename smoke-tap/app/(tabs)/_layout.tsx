@@ -1,6 +1,5 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
 import { t } from '../../i18n';
 import { C } from '../../constants/colors';
 
@@ -9,53 +8,42 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: C.ACCENT,
-        tabBarInactiveTintColor: C.TEXT_MUTED,
+        tabBarActiveTintColor: C.INK,
+        tabBarInactiveTintColor: C.INK_40,
         tabBarStyle: {
-          backgroundColor: C.TAB_BAR,
-          borderTopWidth: 0,
+          backgroundColor: C.BG,
+          borderTopWidth: 1,
+          borderTopColor: C.HAIR,
           elevation: 0,
+          height: 60,
+          paddingBottom: 8,
         },
-        tabBarLabelStyle: { fontSize: 10, letterSpacing: 0.3 },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          letterSpacing: 0.4,
+          fontWeight: '500',
+        },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           tabBarLabel: t('tabs.main'),
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? 'home' : 'home-outline'}
-              size={22}
-              color={color}
-            />
-          ),
+          tabBarIcon: () => null,
         }}
       />
       <Tabs.Screen
         name="stats"
         options={{
           tabBarLabel: t('tabs.stats'),
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? 'bar-chart' : 'bar-chart-outline'}
-              size={22}
-              color={color}
-            />
-          ),
+          tabBarIcon: () => null,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           tabBarLabel: t('tabs.settings'),
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? 'settings' : 'settings-outline'}
-              size={22}
-              color={color}
-            />
-          ),
+          tabBarIcon: () => null,
         }}
       />
     </Tabs>

@@ -2,8 +2,10 @@ import '../global.css';
 import { useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { useTapStore } from '../store/useTapStore';
 import { getPendingCount, clearPending, setBaseCount } from '../modules/SharedTapStore';
+import { C } from '../constants/colors';
 
 function toLocalDateString(ts: number): string {
   const d = new Date(ts);
@@ -56,8 +58,11 @@ export default function RootLayout() {
   useWidgetSync();
 
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-    </Stack>
+    <>
+      <StatusBar style="dark" />
+      <Stack screenOptions={{ contentStyle: { backgroundColor: C.BG } }}>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
+    </>
   );
 }

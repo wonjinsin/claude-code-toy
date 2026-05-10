@@ -3,16 +3,20 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { TapRecord, DailyStat, WeeklySummary } from '../types/tap';
 
+type MonthlyBucket = { label: string; count: number };
+
 type TapState = {
   records: TapRecord[];
   addTap: () => void;
+  removeLastTap: () => void;
   getTodayCount: () => number;
   getLastTapTime: () => number | null;
   getDailyStats: (days: number) => DailyStat[];
   getWeeklyStats: () => WeeklySummary;
+  getHourlyToday: () => number[];
+  getMonthlyStats: () => MonthlyBucket[];
 };
 
-// Returns 'YYYY-MM-DD' in device local timezone
 function toLocalDateString(ts: number): string {
   const d = new Date(ts);
   const y = d.getFullYear();
@@ -33,6 +37,9 @@ export const useTapStore = create<TapState>()(
             { id: String(Date.now()), timestamp: Date.now() },
           ],
         })),
+
+      removeLastTap: () =>
+        set((state) => ({ records: state.records.slice(0, -1) })),
 
       getTodayCount: () => {
         const today = toLocalDateString(Date.now());
@@ -71,6 +78,35 @@ export const useTapStore = create<TapState>()(
           dailyAvg: parseFloat((total / 7).toFixed(1)),
           peakDay,
         };
+      },
+
+      getHourlyToday: (): number[] => {
+        const today = toLocalDateString(Date.now());
+        const buckets = Array(24).fill(0) as number[];
+        for (const r of get().records) {
+          if (toLocalDateString(r.timestamp) !== today) continue;
+          const h = new Date(r.timestamp).getHours();
+          buckets[h] += 1;
+        }
+        return buckets;
+      },
+
+      getMonthlyStats: (): MonthlyBucket[] => {
+        const { records } = get();
+        const result: MonthlyBucket[] = [];
+        for (let i = 3; i >= 0; i--) {
+          const end = new Date();
+          end.setHours(23, 59, 59, 999);
+          end.setDate(end.getDate() - i * 7);
+          const start = new Date(end.getTime());
+          start.setDate(end.getDate() - 6);
+          start.setHours(0, 0, 0, 0);
+          const count = records.filter(
+            (r) => r.timestamp >= start.getTime() && r.timestamp <= end.getTime()
+          ).length;
+          result.push({ label: `${4 - i}주차`, count });
+        }
+        return result;
       },
     }),
     {

@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { C } from '../../constants/colors';
 
 export default function AppHeader() {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>SMOKE TAP</Text>
+      <Text style={styles.title} allowFontScaling={false}>
+        SMOKE TAP
+      </Text>
     </View>
   );
 }
@@ -20,6 +22,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '600',
     letterSpacing: 3,
-    color: C.TEXT_MUTED,
+    color: C.INK_40,
   },
 });
